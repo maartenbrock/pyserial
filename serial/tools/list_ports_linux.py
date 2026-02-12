@@ -90,8 +90,7 @@ class SysFS(list_ports_common.ListPortInfo):
             return None
 
 
-def comports(include_links=False, hide_subsystems=['platform']):
-    # 'platform': hide non-present internal serial ports by default for backward compatibility
+def comports(include_links=False, hide_subsystems=[]):
     devices = set()
     with open('/proc/tty/drivers') as drivers:
         for driver in drivers.readlines():
